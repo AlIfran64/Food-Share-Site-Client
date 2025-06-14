@@ -5,6 +5,7 @@ import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
 import AddFood from "../Pages/AddFood/AddFood";
 import ManageMyFoods from "../Pages/ManageMyFoods/ManageMyFoods";
 import MyFoodRequest from "../Pages/MyFoodRequest/MyFoodRequest";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -33,4 +34,8 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/*',
+    element: <ErrorPage></ErrorPage>
+  }
 ]);

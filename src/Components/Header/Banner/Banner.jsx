@@ -12,11 +12,6 @@ import './styles.css';
 import { Pagination, Autoplay } from 'swiper/modules';
 
 
-
-
-
-
-
 const Banner = () => {
   return (
     <Swiper
@@ -36,11 +31,11 @@ const Banner = () => {
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-20">
-            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold mb-4 text-start">Connect Excess Food to Empty Plates</h2>
-            <p className="mb-5 text-sm lg:text-xl text-start">Join a platform where individuals and organizations turn surplus food into meaningful support. <br /> Simple to donate, easy to manage, and impactful.</p>
+            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold mb-4 text-start">Connect Excess Food to <br /> Empty Plates</h2>
+            <p className="mb-5 text-sm lg:text-xl text-start">Join a platform where individuals and organizations turn surplus food into <br /> meaningful support. Simple to donate, easy to manage, and impactful.</p>
             <p className="mb-1 text-xs  lg:text-lg font-semibold tracking-wide opacity-80">| Trusted by 5,000+ users</p>
             <p className="mb-8 text-xs lg:text-lg font-semibold tracking-wide opacity-80">| Over 20,000 meals shared</p>
-            <Link to={'/login'}>
+            <Link to={'/availableFoods'}>
               <button className="bg-[#D8214D] text-white font-medium px-6 py-3 rounded hover:bg-gray-200 hover:text-black text-xs lg:text-lg">Explore Available Food</button>
             </Link>
           </div>
@@ -58,7 +53,7 @@ const Banner = () => {
             <p className="mb-5 text-sm lg:text-xl text-start">Your extra food can make someone’s day. Share locally, track requests, and <br /> be part of a movement that feeds hope.</p>
             <p className="mb-1 text-xs  lg:text-lg font-semibold tracking-wide opacity-80">| Serving 30+ local areas</p>
             <p className="mb-8 text-xs lg:text-lg font-semibold tracking-wide opacity-80">| Backed by 100+ verified partners</p>
-            <Link to={'/login'}>
+            <Link to={'/addFood'}>
               <button className="bg-[#D8214D] text-white font-medium px-6 py-3 rounded hover:bg-gray-200 hover:text-black text-xs lg:text-lg">Add Food Now</button>
             </Link>
           </div>
@@ -72,11 +67,11 @@ const Banner = () => {
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-20">
-            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold mb-4 text-start">Got Extra Food? Someone Needs It.</h2>
-            <p className="mb-5 text-sm lg:text-xl text-start">Reduce waste, respond to real needs, and <br /> make a difference — one click is all it takes.</p>
+            <h2 className="text-xl md:text-3xl lg:text-5xl font-bold mb-4 text-start">Got Extra Food? Someone <br /> Needs It.</h2>
+            <p className="mb-5 text-sm lg:text-xl text-start">Reduce waste, respond to real needs, and make a difference — one <br /> click is all it takes.</p>
             <p className="mb-1 text-xs  lg:text-lg font-semibold tracking-wide opacity-80">| 98% user satisfaction </p>
             <p className="mb-8 text-xs lg:text-lg font-semibold tracking-wide opacity-80">| Live request tracking available</p>
-            <Link to={'/login'}>
+            <Link to={'/myFoodRequest'}>
               <button className="bg-[#D8214D] text-white font-medium px-6 py-3 rounded hover:bg-gray-200 hover:text-black text-xs lg:text-lg">View Food Requests</button>
             </Link>
           </div>

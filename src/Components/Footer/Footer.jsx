@@ -16,7 +16,7 @@ const Footer = () => {
   </>
 
   return (
-    <footer className="footer footer-horizontal footer-center bg-[#344D83] text-base-content rounded p-20">
+    <footer className="footer footer-horizontal footer-center bg-[#344D83] text-base-content p-20">
       <nav className="grid grid-flow-col gap-4">
         {links}
       </nav>
