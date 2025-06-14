@@ -16,8 +16,12 @@ const Footer = () => {
   </>
 
   return (
-    <footer className="footer footer-horizontal footer-center bg-[#344D83] text-base-content p-20">
-      <nav className="grid grid-flow-col gap-4">
+    <footer className="footer footer-horizontal footer-center bg-[#0E2148] text-base-content p-20">
+      <div className='flex items-center gap-3'>
+        <img className='w-10' src="../../../src/assets/images/logo.png" alt="logo" />
+        <h1 className='text-white text-3xl font-semibold'>ShareBite</h1>
+      </div>
+      <nav className="grid grid-flow-col gap-4 text-xs md:text-md lg:text-lg">
         {links}
       </nav>
       <nav>

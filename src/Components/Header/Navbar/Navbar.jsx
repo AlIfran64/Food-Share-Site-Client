@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../../../assets/images/logo.png';
+import { AuthContext } from '../../Context/Authentication/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+
+  const { user, logout } = useContext(AuthContext);
+
+
+  // Handle Logout
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast.success('Logout successful! See you again soon.');
+      }).catch((error) => {
+        toast.error(`Logout failed: ${error.message}`);
+      });
+  }
 
   const links = <>
     <NavLink to={'/'} className={({ isActive }) => isActive ? "border-b-2 border-[#D9224E] font-semibold mx-2 my-1" : "mx-2 my-1"}>Home</NavLink>
@@ -44,19 +59,38 @@ const Navbar = () => {
       </div>
 
 
-      <div className="navbar-end flex space-x-1 sm:space-x-2 lg:space-x-4">
-        <Link
-          to="/login"
-          className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#D9224E] text-[#D9224E] hover:bg-[#D9224E] hover:text-white transition-colors duration-300"
-        >
-          Login
-        </Link>
-        <Link
-          to="/signup"
-          className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 bg-[#D9224E] text-white border-2 border-[#D9224E] hover:bg-transparent hover:text-[#D9224E] transition-colors duration-300"
-        >
-          Signup
-        </Link>
+      <div className="navbar-end">
+
+        {
+          user ?
+            <div className='flex space-x-2 lg:space-x-4 items-center'>
+
+              <div className="relative flex-shrink-0">
+                <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-400 border rounded-full dark:text-gray-800 dark:border-gray-50"></span>
+                <img src={user.photoURL
+                } alt="profile" className="w-10 h-10 lg:w-12 lg:h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300" />
+              </div>
+
+              <button onClick={handleLogout} className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#D9224E] text-[#D9224E] hover:bg-[#D9224E] hover:text-white transition-colors duration-300">Logout</button>
+            </div>
+            :
+            <div className='flex space-x-1 sm:space-x-2 lg:space-x-4 items-center'>
+              <Link
+                to="/login"
+                className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#D9224E] text-[#D9224E] hover:bg-[#D9224E] hover:text-white transition-colors duration-300"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 bg-[#D9224E] text-white border-2 border-[#D9224E] hover:bg-transparent hover:text-[#D9224E] transition-colors duration-300"
+              >
+                Signup
+              </Link>
+            </div>
+        }
+
+
       </div>
 
 
