@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
-import logo from '../../../../public/assets/images/logo.png';
+import logo from '../../../assets/images/logo.png';
 
 const Navbar = () => {
 
   const links = <>
-    <NavLink to={'/'} className={({ isActive }) => isActive ? "border-b-2 font-semibold mx-2 my-1" : "mx-2 my-1"}>Home</NavLink>
+    <NavLink to={'/'} className={({ isActive }) => isActive ? "border-b-2 border-[#D9224E] font-semibold mx-2 my-1" : "mx-2 my-1"}>Home</NavLink>
 
-    <NavLink to={'/availableFoods'} className={({ isActive }) => isActive ? "border-b-2 font-semibold mx-2 my-1" : "mx-2 my-1"}>Available Foods</NavLink>
+    <NavLink to={'/availableFoods'} className={({ isActive }) => isActive ? "border-b-2 border-[#D9224E] font-semibold mx-2 my-1" : "mx-2 my-1"}>Available Foods</NavLink>
 
-    <NavLink to={'/addFood'} className={({ isActive }) => isActive ? "border-b-2 font-semibold mx-2 my-1" : "mx-2 my-1"}>Add Food</NavLink>
+    <NavLink to={'/addFood'} className={({ isActive }) => isActive ? "border-b-2 border-[#D9224E] font-semibold mx-2 my-1" : "mx-2 my-1"}>Add Food</NavLink>
 
-    <NavLink to={'/manageMyFoods'} className={({ isActive }) => isActive ? "border-b-2 font-semibold mx-2 my-1" : "mx-2 my-1"}>Manage My Foods</NavLink>
+    <NavLink to={'/manageMyFoods'} className={({ isActive }) => isActive ? "border-b-2 border-[#D9224E] font-semibold mx-2 my-1" : "mx-2 my-1"}>Manage My Foods</NavLink>
 
-    <NavLink to={'/myFoodRequest'} className={({ isActive }) => isActive ? "border-b-2 font-semibold mx-2 my-1" : "mx-2 my-1"}>My Food Request</NavLink>
+    <NavLink to={'/myFoodRequest'} className={({ isActive }) => isActive ? "border-b-2 border-[#D9224E] font-semibold mx-2 my-1" : "mx-2 my-1"}>My Food Request</NavLink>
   </>
 
   return (
