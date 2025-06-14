@@ -42,10 +42,24 @@ const Navbar = () => {
           {links}
         </ul>
       </div>
-      <div className="navbar-end space-x-2 lg:space-x-4">
-        <Link className="btn border-2 border-[#D9224E]">Login</Link>
-        <Link className="btn bg-[#D9224E] border-[#D9224E] border-2 text-white">Signup</Link>
+
+
+      <div className="navbar-end flex space-x-1 sm:space-x-2 lg:space-x-4">
+        <Link
+          to="/login"
+          className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#D9224E] text-[#D9224E] hover:bg-[#D9224E] hover:text-white transition-colors duration-300"
+        >
+          Login
+        </Link>
+        <Link
+          to="/signup"
+          className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 bg-[#D9224E] text-white border-2 border-[#D9224E] hover:bg-transparent hover:text-[#D9224E] transition-colors duration-300"
+        >
+          Signup
+        </Link>
       </div>
+
+
     </div>
   );
 };
