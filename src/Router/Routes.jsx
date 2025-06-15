@@ -9,6 +9,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 import PrivateRoutes from "./PrivateRoutes";
+import Loading from "../Pages/Loading/Loading";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:3000/shareFood'),
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/availableFoods',
