@@ -2,9 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 
-const FeaturedFoodCard = ({ food }) => {
-
-  // Destructuring
+const AvailableFoodsCard = ({ data }) => {
   const {
     additionalNotes,
     foodImage,
@@ -14,15 +12,14 @@ const FeaturedFoodCard = ({ food }) => {
     expiredDate,
     foodStatus,
     _id
-  } = food;
+  } = data;
 
   return (
     <motion.div
-      className="w-full max-w-sm bg-white rounded-xl shadow-md overflow-hidden my-4"
-      initial={{ opacity: 0, y: 30 }}
+      className="w-full max-w-sm bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 transform hover:-translate-y-1 my-4"
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      whileHover={{ scale: 1.03, boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)" }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
     >
       <div className="relative">
         <img
@@ -40,24 +37,21 @@ const FeaturedFoodCard = ({ food }) => {
 
       <div className="p-4 space-y-2">
         <h3 className="text-xl font-bold text-[#344D83]">{foodName}</h3>
-        <p className="text-sm text-gray-500">
-          <strong>Quantity:</strong> {foodQuantity}
-        </p>
-        <p className="text-sm text-gray-500">
-          <strong>Location:</strong> {pickupLocation}
-        </p>
-        <p className="text-sm text-gray-500">
-          <strong>Expires:</strong> {expiredDate}
-        </p>
+
+        <div className="text-sm text-gray-600 space-y-1">
+          <p><strong>Quantity:</strong> {foodQuantity}</p>
+          <p><strong>Location:</strong> {pickupLocation}</p>
+          <p><strong>Expires:</strong> {expiredDate}</p>
+        </div>
+
         {additionalNotes && (
-          <p className="text-sm text-gray-600 italic mt-2">
+          <p className="text-sm text-gray-500 italic mt-2">
             “{additionalNotes.length > 80 ? additionalNotes.slice(0, 80) + '...' : additionalNotes}”
           </p>
         )}
+
         <Link to={`/shareFood/${_id}`}>
-          <button
-            className="mt-3 w-full py-2 text-center bg-[#D9224E] text-white font-semibold rounded hover:bg-[#bb1d43] transition-colors cursor-pointer"
-          >
+          <button className="mt-3 w-full py-2 text-center bg-[#F6931E] text-white font-semibold rounded hover:bg-black transition-colors cursor-pointer">
             View Details
           </button>
         </Link>
@@ -66,4 +60,4 @@ const FeaturedFoodCard = ({ food }) => {
   );
 };
 
-export default FeaturedFoodCard;
+export default AvailableFoodsCard;
