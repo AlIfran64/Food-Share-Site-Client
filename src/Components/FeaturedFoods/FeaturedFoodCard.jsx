@@ -31,11 +31,15 @@ const FeaturedFoodCard = ({ food }) => {
           className="w-full h-52 object-cover"
         />
         <span
-          className={`absolute top-2 left-2 text-xs font-semibold px-3 py-1 rounded-full ${foodStatus === 'available' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
-            }`}
-        >
+          className={`absolute top-2 left-2 text-xs font-semibold px-3 py-1 rounded-full
+          ${foodStatus === 'available' ? 'bg-green-500 text-white'
+              : foodStatus === 'unavailable' ? 'bg-red-400 text-white'
+                : foodStatus === 'requested' ? 'bg-orange-500 text-white'
+                  : 'bg-black text-white'
+            }`}>
           {foodStatus}
         </span>
+
       </div>
 
       <div className="p-4 space-y-2">

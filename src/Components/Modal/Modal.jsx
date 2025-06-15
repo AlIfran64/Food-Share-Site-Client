@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Context/Authentication/AuthContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Modal = ({ onClose, food }) => {
   const { user } = useContext(AuthContext);
@@ -14,13 +16,32 @@ const Modal = ({ onClose, food }) => {
     _id
   } = food;
 
+  console.log(food);
+
+
   // Only date part, no time
   const requestDate = new Date().toISOString().split('T')[0];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Food requested");
-    onClose();
+
+
+    // send data to backend
+    axios.patch(`http://localhost:3000/shareFood/${_id}`, {
+      foodStatus: 'requested',
+    })
+      .then(res => {
+        if (res.data.modifiedCount > 0) {
+          toast.success("Food requested successfully!")
+          onClose(); // close modal after success
+        } else {
+          toast.error("No changes made. Maybe already requested.")
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        toast.error("Something went wrong while requesting food.", err);
+      });
   };
 
   return (
