@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
-import { AuthContext } from '../../Components/Context/Authentication/AuthContext';
+import Modal from '../../Components/Modal/Modal';
+
 
 const FoodDetails = () => {
 
   const food = useLoaderData();
+  const [modal, setModal] = useState(false);
 
   const {
     additionalNotes,
@@ -16,11 +18,12 @@ const FoodDetails = () => {
     pickupLocation,
     foodDonarName,
     foodDonarEmail,
-    foodDonarImage
+    foodDonarImage,
+    _id
   } = food;
 
   return (
-    <section className="py-10 lg:py-20 px-4 sm:px-8 bg-gray-50 min-h-screen font-sans">
+    <section className="py-10 lg:py-20 px-4 sm:px-8 bg-gray-50 min-h-screen font-sans relative">
       <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
 
         {/* Food Image */}
@@ -67,17 +70,22 @@ const FoodDetails = () => {
                 </div>
               </div>
             </div>
-
           </div>
 
           {/* Request Button */}
           <div className="mt-8">
-            <button className="w-full py-3 rounded-lg bg-gradient-to-r from-[#344D83] to-[#D9224E] text-white font-semibold text-lg shadow-md hover:opacity-90 transition-all duration-300">
+            <button onClick={() => setModal(!modal)} className="w-full py-3 rounded-lg bg-gradient-to-r from-[#344D83] to-[#D9224E] text-white font-semibold text-lg shadow-md hover:opacity-90 transition-all duration-300">
               Request This Food
             </button>
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {
+        modal && <Modal food={food} onClose={() => setModal(false)}></Modal>
+      }
+
     </section>
   );
 };
