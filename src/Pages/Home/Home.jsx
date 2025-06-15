@@ -4,6 +4,7 @@ import FeaturedFoods from '../../Components/FeaturedFoods/FeaturedFoods';
 import HowItWorks from '../../Components/HowItWorks/HowItWorks';
 import UserTestimonial from '../../Components/UserTestimonial/UserTestimonial';
 import Statistics from '../../Components/Statistics/Statistics';
+import FAQ from '../../Components/FAQ/FAQ';
 
 
 const Home = () => {
@@ -18,6 +19,8 @@ const Home = () => {
       <UserTestimonial></UserTestimonial>
 
       <Statistics></Statistics>
+
+      <FAQ></FAQ>
     </div>
   );
 };
