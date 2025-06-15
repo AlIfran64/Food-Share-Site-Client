@@ -12,7 +12,7 @@ const FeaturedFoods = () => {
 
   return (
     <section className="py-16 px-4">
-      <div className="max-w-7xl mx-auto lg:my-20">
+      <div className="max-w-7xl mx-auto lg:my-10">
         {/* Header */}
         <div className="text-center mb-8 lg:mb-15">
           <h2 className="text-4xl font-bold">
@@ -33,7 +33,7 @@ const FeaturedFoods = () => {
         {/* Show All Button */}
         <div className="flex justify-center mt-8 lg:mt-15">
           <Link to={"/availableFoods"}>
-            <button className="bg-[#344D83] text-white px-6 py-3 rounded-lg hover:bg-black transition cursor-pointer">
+            <button className="bg-[#D9224E] text-white px-8 py-3 rounded-sm hover:bg-black transition cursor-pointer font-semibold">
               Show All
             </button>
           </Link>

@@ -11,7 +11,7 @@ const AvailableFoods = () => {
   const filteredData = availableFoodData.filter((data) => data.foodStatus === "available");
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-15">

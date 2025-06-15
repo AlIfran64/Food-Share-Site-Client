@@ -36,7 +36,7 @@ const AvailableFoodsCard = ({ data }) => {
       </div>
 
       <div className="p-4 space-y-2">
-        <h3 className="text-xl font-bold text-[#344D83]">{foodName}</h3>
+        <h3 className="text-xl font-bold">{foodName}</h3>
 
         <div className="text-sm text-gray-600 space-y-1">
           <p><strong>Quantity:</strong> {foodQuantity}</p>

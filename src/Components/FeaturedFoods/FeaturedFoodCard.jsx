@@ -43,7 +43,7 @@ const FeaturedFoodCard = ({ food }) => {
       </div>
 
       <div className="p-4 space-y-2">
-        <h3 className="text-xl font-bold text-[#344D83]">{foodName}</h3>
+        <h3 className="text-xl font-bold">{foodName}</h3>
         <p className="text-sm text-gray-500">
           <strong>Quantity:</strong> {foodQuantity}
         </p>
@@ -60,7 +60,7 @@ const FeaturedFoodCard = ({ food }) => {
         )}
         <Link to={`/shareFood/${_id}`}>
           <button
-            className="mt-3 w-full py-2 text-center bg-[#D9224E] text-white font-semibold rounded hover:bg-[#bb1d43] transition-colors cursor-pointer"
+            className="mt-3 w-full py-2 text-center bg-[#344D83] text-white font-semibold rounded hover:bg-black transition-colors cursor-pointer"
           >
             View Details
           </button>
