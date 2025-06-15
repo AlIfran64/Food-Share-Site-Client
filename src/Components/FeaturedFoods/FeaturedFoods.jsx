@@ -11,14 +11,14 @@ const FeaturedFoods = () => {
     .slice(0, 6);
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto lg:my-20">
         {/* Header */}
         <div className="text-center mb-8 lg:mb-15">
-          <h2 className="text-4xl font-bold text-[#344D83]">
-            Featured <span className="text-[#D9224E]">Foods</span>
+          <h2 className="text-4xl font-bold">
+            Featured Foods
           </h2>
-          <p className="text-lg text-gray-600 mt-2">
+          <p className="text-lg text-gray-600 mt-4">
             Explore the Most Generously Shared Meals Today
           </p>
         </div>
