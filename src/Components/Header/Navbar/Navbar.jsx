@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import logo from '../../../assets/images/logo.png';
 import { AuthContext } from '../../Context/Authentication/AuthContext';
 import { toast } from 'react-toastify';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
 
@@ -67,8 +68,13 @@ const Navbar = () => {
 
               <div className="relative flex-shrink-0">
                 <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-400 border rounded-full dark:text-gray-800 dark:border-gray-50"></span>
-                <img src={user.photoURL
-                } alt="profile" className="w-10 h-10 lg:w-12 lg:h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300" />
+                <img
+                  src={user.photoURL
+                  }
+                  alt="profile"
+                  className="w-10 h-10 lg:w-12 lg:h-12 border rounded-full dark:bg-gray-500 dark:border-gray-300"
+                  data-tooltip-id="userTooltip"
+                  data-tooltip-content={user.displayName || 'No Name'} />
               </div>
 
               <button onClick={handleLogout} className="btn text-sm px-3 py-1 sm:px-4 sm:py-2 border-2 border-[#D9224E] text-[#D9224E] hover:bg-[#D9224E] hover:text-white transition-colors duration-300">Logout</button>
@@ -89,7 +95,7 @@ const Navbar = () => {
               </Link>
             </div>
         }
-
+        <Tooltip id="userTooltip" place="bottom" style={{ zIndex: 9999 }} />
 
       </div>
 
