@@ -19,7 +19,7 @@ const HowItWorks = () => {
           Hungry users can browse listings, request items, and arrange pickup—helping reduce food waste while building a compassionate, sustainable community.
         </p>
 
-        <div className="space-y-3 mt-6 text-sm lg:text-base font-medium text-gray-700">
+        <div className="space-y-3 mt-6 mb-10 lg:mb-1 text-sm lg:text-base font-medium text-gray-700">
           <div className="flex items-center gap-3">
             <FaBoxOpen className="text-[#F5921D] text-xl" />
             <span>Add and manage food listings easily</span>

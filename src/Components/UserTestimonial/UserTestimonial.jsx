@@ -2,7 +2,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 const UserTestimonial = () => {
   return (
-    <blockquote className="relative text-center max-w-5xl mx-auto px-6 py-12 my-40">
+    <blockquote className="relative text-center max-w-5xl mx-auto px-6 py-12 my-32">
       {/* Quotation icon */}
       <FaQuoteLeft className="absolute -top-6 left-6 text-7xl opacity-20" />
 
