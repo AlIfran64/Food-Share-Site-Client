@@ -29,6 +29,8 @@ const Modal = ({ onClose, food }) => {
     // send data to backend
     axios.patch(`http://localhost:3000/shareFood/${_id}`, {
       foodStatus: 'requested',
+      requestedBy: user.email,
+      requestDate: requestDate
     })
       .then(res => {
         if (res.data.modifiedCount > 0) {

@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { Suspense, useContext } from 'react';
+import { AuthContext } from '../../Components/Context/Authentication/AuthContext';
+import Loading from '../Loading/Loading';
+import MyFoodRequestList from './MyFoodRequestList';
+import { requestPromise } from '../../Api/requestApi';
 
 const MyFoodRequest = () => {
+
+  const { user } = useContext(AuthContext);
+
   return (
-    <div>
-      <h1>My food request</h1>
+    <div className="w-11/12 mx-auto px-4 py-10">
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">My Food Requests</h1>
+      <p className="text-center text-gray-600 mb-15">
+        Track your requested food items here
+      </p>
+      <Suspense fallback={<Loading></Loading>}>
+        <MyFoodRequestList requestPromise={requestPromise(user.email)}></MyFoodRequestList>
+      </Suspense>
     </div>
   );
 };
