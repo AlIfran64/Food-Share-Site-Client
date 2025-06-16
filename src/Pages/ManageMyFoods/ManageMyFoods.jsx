@@ -18,12 +18,6 @@ const ManageMyFoods = () => {
       <Suspense fallback={<Loading></Loading>}>
         <ManageMyFoodList manageMyFoodPromise={manageMyFoodPromise(user.email)}></ManageMyFoodList>
       </Suspense>
-
-      {/* {filteredData.length === 0 ? (
-        <div className="text-center text-gray-500 mt-10">
-          <p>No food items found.</p>
-        </div>
-      ) : } */}
     </div>
   );
 };

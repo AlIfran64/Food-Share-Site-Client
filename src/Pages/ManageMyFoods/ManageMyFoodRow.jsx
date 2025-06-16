@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
@@ -33,7 +34,7 @@ const ManageMyFoodRow = ({ item }) => {
             console.log('Deleted:', res.data);
             Swal.fire({
               title: "Deleted!",
-              text: "Your file has been deleted.",
+              text: "Your food item has been deleted.",
               icon: "success"
             });
           })
@@ -44,7 +45,6 @@ const ManageMyFoodRow = ({ item }) => {
       }
     });
   };
-
 
   return (
     <tr className="align-middle">
@@ -60,9 +60,11 @@ const ManageMyFoodRow = ({ item }) => {
       <td className="py-3 px-4 border-b">{pickupLocation}</td>
       <td className="py-3 px-4 border-b capitalize text-center">{foodStatus}</td>
       <td className="py-3 px-4 border-b text-center space-x-2">
-        <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-3 py-1 rounded text-sm">
-          Update
-        </button>
+        <Link to={`/updateFood/${_id}`}>
+          <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-3 py-1 rounded text-sm">
+            Update
+          </button>
+        </Link>
         <button onClick={handleDelete} className="bg-red-500 hover:bg-red-600 text-white px-3 font-semibold py-1 rounded text-sm">
           Delete
         </button>
