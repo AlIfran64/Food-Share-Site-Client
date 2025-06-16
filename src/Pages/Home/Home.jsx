@@ -5,12 +5,15 @@ import HowItWorks from '../../Components/HowItWorks/HowItWorks';
 import UserTestimonial from '../../Components/UserTestimonial/UserTestimonial';
 import Statistics from '../../Components/Statistics/Statistics';
 import FAQ from '../../Components/FAQ/FAQ';
+import OurPartners from '../../Components/OurPartners/OurPartners';
 
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
+
+      <OurPartners></OurPartners>
 
       <FeaturedFoods></FeaturedFoods>
 

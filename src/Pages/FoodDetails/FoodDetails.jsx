@@ -39,11 +39,26 @@ const FoodDetails = () => {
         <div className="p-8 flex flex-col justify-between text-black">
 
           <div>
-            <h2 className="text-4xl font-bold mb-2 text-[#344D83]">{foodName}</h2>
+            <h2 className="text-4xl font-bold mb-2">{foodName}</h2>
             <p className="text-sm text-gray-500 mb-6">A generous contribution from our community.</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 text-base">
-              <p><strong>Status:</strong> <span className={`font-semibold ${foodStatus === 'available' ? 'text-green-600' : 'text-red-600'}`}>{foodStatus}</span></p>
+              <p>
+                <strong>Status:</strong>{' '}
+                <span
+                  className={`font-semibold ${foodStatus === 'available'
+                    ? 'text-green-600'
+                    : foodStatus === 'unavailable'
+                      ? 'text-red-600'
+                      : foodStatus === 'requested'
+                        ? 'text-[#FF6900]'
+                        : 'text-gray-500'
+                    }`}
+                >
+                  {foodStatus}
+                </span>
+              </p>
+
               <p><strong>Quantity:</strong> {foodQuantity}</p>
               <p><strong>Pickup Location:</strong> {pickupLocation}</p>
               <p><strong>Expire Date:</strong> {expiredDate}</p>
@@ -74,7 +89,7 @@ const FoodDetails = () => {
 
           {/* Request Button */}
           <div className="mt-8">
-            <button onClick={() => setModal(!modal)} className="w-full py-3 rounded-lg bg-gradient-to-r from-[#344D83] to-[#D9224E] text-white font-semibold text-lg shadow-md hover:opacity-90 transition-all duration-300">
+            <button onClick={() => setModal(!modal)} className="w-full py-3 rounded-lg bg-[#344D83] text-white font-semibold text-lg shadow-md hover:opacity-90 transition-all duration-300">
               Request This Food
             </button>
           </div>
