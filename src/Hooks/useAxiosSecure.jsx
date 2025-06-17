@@ -1,42 +1,37 @@
 import axios from 'axios';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../Components/Context/Authentication/AuthContext';
 import { toast } from 'react-toastify';
 
-const axiosInstance = axios.create({
-  baseURL: 'https://sharebite-server-coral.vercel.app'
-})
-
 const useAxiosSecure = () => {
-
   const { user, logout } = useContext(AuthContext);
 
+  const axiosSecureInstance = axios.create({
+    baseURL: 'https://sharebite-server-coral.vercel.app',
+  });
 
-  // Request
-  axiosInstance.interceptors.request.use((config) => {
-    config.headers.authorization = `Bearer ${user.accessToken}`
-    return config;
-  })
-
-  // Response
-  axiosInstance.interceptors.response.use((response) => {
-    return response;
-  }, (error) => {
-    if (error.status === 401 || error.status === 403) {
-      logout()
-        .then(() => {
-          toast.error("Logged out user for unauthorized access")
-
-        })
-        .catch((error) => {
-          toast.error(error)
-        })
-
+  // Attach fresh token in every request
+  axiosSecureInstance.interceptors.request.use((config) => {
+    if (user?.accessToken) {
+      config.headers.authorization = `Bearer ${user.accessToken}`;
     }
-    return Promise.reject(error);
-  })
+    return config;
+  });
 
-  return axiosInstance;
+  // Handle unauthorized errors
+  axiosSecureInstance.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (error?.response?.status === 401 || error?.response?.status === 403) {
+        logout()
+          .then(() => toast.error('Logged out due to unauthorized access'))
+          .catch((err) => toast.error(err.message));
+      }
+      return Promise.reject(error);
+    }
+  );
+
+  return axiosSecureInstance;
 };
 
 export default useAxiosSecure;
