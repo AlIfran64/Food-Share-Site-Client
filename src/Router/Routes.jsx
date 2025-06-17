@@ -59,7 +59,10 @@ export const router = createBrowserRouter([
       },
       {
         path: '/shareFood/:id',
-        element: <FoodDetails></FoodDetails>,
+        element:
+          <PrivateRoutes>
+            <FoodDetails></FoodDetails>
+          </PrivateRoutes>
         // Use tanstack query to fetch data
       },
       {
