@@ -4,7 +4,7 @@ import { AuthContext } from '../Components/Context/Authentication/AuthContext';
 import { toast } from 'react-toastify';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'https://sharebite-server-coral.vercel.app'
 })
 
 const useAxiosSecure = () => {

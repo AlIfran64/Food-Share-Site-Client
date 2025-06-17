@@ -4,10 +4,11 @@ import meal from '../../../src/assets/images/meals.png';
 import donor from '../../../src/assets/images/donor.png';
 import family from '../../../src/assets/images/family.png';
 import localarea from '../../../src/assets/images/localarea.png';
+import bgImage from '../../../src/assets/images/statsbg.jpg';
 
 const Statistics = () => {
   return (
-    <div className="bg-[url('../../../src/assets/images/statsbg.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="bg-[#D9224E]/80 py-14 px-4">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-white font-extrabold text-3xl md:text-4xl text-center">Our Impact in Numbers</h1>

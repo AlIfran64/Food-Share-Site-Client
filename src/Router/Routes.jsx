@@ -21,13 +21,13 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:3000/shareFood'),
+        loader: () => fetch('https://sharebite-server-coral.vercel.app/shareFood'),
         hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/availableFoods',
         element: <AvailableFoods></AvailableFoods>,
-        loader: () => fetch('http://localhost:3000/sortedAvailableFoods'),
+        loader: () => fetch('https://sharebite-server-coral.vercel.app/sortedAvailableFoods'),
         hydrateFallbackElement: <Loading></Loading>
       },
       {
@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
       {
         path: '/updateFood/:id',
         element: <UpdateFood></UpdateFood>,
-        loader: ({ params }) => fetch(`http://localhost:3000/shareFood/${params.id}`),
+        loader: ({ params }) => fetch(`https://sharebite-server-coral.vercel.app/shareFood/${params.id}`),
         hydrateFallbackElement: <Loading></Loading>
       },
       {
@@ -60,8 +60,7 @@ export const router = createBrowserRouter([
       {
         path: '/shareFood/:id',
         element: <FoodDetails></FoodDetails>,
-        loader: ({ params }) => fetch(`http://localhost:3000/shareFood/${params.id}`),
-        hydrateFallbackElement: <Loading></Loading>
+        // Use tanstack query to fetch data
       },
       {
         path: '/login',

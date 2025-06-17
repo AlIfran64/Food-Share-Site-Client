@@ -17,7 +17,6 @@ const Login = () => {
     const form = e.target;
     const formData = new FormData(form);
     const loginData = Object.fromEntries(formData.entries());
-    console.log(loginData);
 
     // Destructure
     const { email, password } = loginData;
@@ -26,7 +25,6 @@ const Login = () => {
     login(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log('user', user);
         toast.success('Login successful! Welcome back!');
         navigate(`${location.state ? location.state : "/"}`);
         form.reset();
@@ -44,7 +42,6 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        console.log('user', user);
 
         if (user.email) {
           toast.success('Google login successful! Welcome to our platform.');

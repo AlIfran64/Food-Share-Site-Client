@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../Components/Context/Authentication/AuthContext';
 import { toast } from 'react-toastify';
 
@@ -7,6 +7,7 @@ const Signup = () => {
 
   const { signup, setUser, googleLogin, userProfileUpdate } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Handle Signup
   const handleSignup = (e) => {
@@ -68,11 +69,10 @@ const Signup = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        console.log('user', user);
 
         if (user.email) {
           toast.success('Google login successful! Welcome to our platform.');
-          navigate('/');
+          navigate(`${location.state ? location.state : "/"}`);
         }
       }).catch((error) => {
         // Handle Errors here.

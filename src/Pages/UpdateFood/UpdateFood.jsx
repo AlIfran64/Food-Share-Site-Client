@@ -22,12 +22,14 @@ const UpdateFood = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updateData = Object.fromEntries(formData.entries());
-    console.log(updateData);
 
     // send edited data to backend
-    axios.put(`http://localhost:3000/shareFood/${_id}`, updateData)
+    axios.put(`https://sharebite-server-coral.vercel.app/shareFood/${_id}`, updateData, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then(res => {
-        console.log(res.data);
         Swal.fire({
           title: "Updated successfully!",
           icon: "success",
@@ -35,7 +37,6 @@ const UpdateFood = () => {
         });
       })
       .catch(err => {
-        console.error(err);
         Swal.fire({
           title: "Oops!",
           text: "Failed to update the food item. Please try again later.",

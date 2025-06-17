@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Components/Context/Authentication/AuthContext';
 
 const ManageMyFoodRow = ({ item, food, setFood }) => {
+  const { user } = useContext(AuthContext);
   const {
     foodImage,
     foodName,
@@ -27,11 +29,13 @@ const ManageMyFoodRow = ({ item, food, setFood }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Axios DELETE with body
-        axios.delete(`http://localhost:3000/shareFood/${_id}`, {
-          data: item // this is the correct way to pass body data
+        axios.delete(`https://sharebite-server-coral.vercel.app/shareFood/${_id}`, {
+          data: item,
+          headers: {
+            authorization: `Bearer ${user?.accessToken}`,
+          }
         })
           .then(res => {
-            console.log('Deleted:', res.data);
             Swal.fire({
               title: "Deleted!",
               text: "Your food item has been deleted.",
@@ -44,8 +48,7 @@ const ManageMyFoodRow = ({ item, food, setFood }) => {
 
           })
           .catch(err => {
-            toast.error('Failed to delete');
-            console.error(err);
+            toast.error('Failed to delete', err);
           });
       }
     });
@@ -64,13 +67,13 @@ const ManageMyFoodRow = ({ item, food, setFood }) => {
       <td className="py-3 px-4 border-b text-center">{foodQuantity}</td>
       <td className="py-3 px-4 border-b">{pickupLocation}</td>
       <td className="py-3 px-4 border-b capitalize text-center">{foodStatus}</td>
-      <td className="py-3 px-4 border-b text-center space-x-2">
+      <td className="py-3 px-4 border-b text-center lg:space-x-2">
         <Link to={`/updateFood/${_id}`}>
           <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-3 py-1 rounded text-sm">
             Update
           </button>
         </Link>
-        <button onClick={() => handleDelete(_id)} className="bg-red-500 hover:bg-red-600 text-white px-3 font-semibold py-1 rounded text-sm">
+        <button onClick={() => handleDelete(_id)} className="bg-red-500 hover:bg-red-600 text-white px-3 font-semibold py-1 rounded text-sm mt-2 lg:mt-0">
           Delete
         </button>
       </td>

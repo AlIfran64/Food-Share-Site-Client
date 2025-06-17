@@ -2,6 +2,9 @@ import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router';
+import slider1 from '../../../../src/assets/images/slider-1.webp';
+import slider2 from '../../../../src/assets/images/slider-2.webp';
+import slider3 from '../../../../src/assets/images/slider-3.webp';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -27,7 +30,7 @@ const Banner = () => {
       {/* Slider-1 */}
       <SwiperSlide>
         <div className="relative w-full">
-          <img src="/src/assets/images/slider-1.webp" alt="slider-1 image" />
+          <img src={slider1} alt="slider-1 image" />
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-20">
@@ -45,7 +48,7 @@ const Banner = () => {
       {/* Slider -2 */}
       <SwiperSlide>
         <div className="relative w-full">
-          <img src="/src/assets/images/slider-2.webp" alt="slider-1 image" />
+          <img src={slider2} alt="slider-2 image" />
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-20">
@@ -63,7 +66,7 @@ const Banner = () => {
       {/* slider-3 */}
       <SwiperSlide>
         <div className="relative w-full">
-          <img src="/src/assets/images/slider-3.webp" alt="slider-1 image" />
+          <img src={slider3} alt="slider-3 image" />
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-20">

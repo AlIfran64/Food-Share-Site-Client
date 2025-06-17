@@ -44,7 +44,7 @@ const HowItWorks = () => {
         <img
           src={foodShare}
           alt="Food Sharing Illustration"
-          className="w-full h-full object-cover shadow-md"
+          className="w-full h-full object-cover"
         />
       </div>
     </div>

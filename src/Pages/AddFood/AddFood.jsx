@@ -18,9 +18,12 @@ const AddFood = () => {
     const addFormData = Object.fromEntries(formData.entries());
 
     // Send data to backend
-    axios.post('http://localhost:3000/shareFood', addFormData)
+    axios.post('https://sharebite-server-coral.vercel.app/shareFood', addFormData, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then(function (response) {
-        console.log(response);
         toast.success("Food Added Successfully!");
         form.reset();
       })
