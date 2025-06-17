@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
-const ManageMyFoodRow = ({ item }) => {
+const ManageMyFoodRow = ({ item, food, setFood }) => {
   const {
     foodImage,
     foodName,
@@ -15,7 +15,7 @@ const ManageMyFoodRow = ({ item }) => {
   } = item;
 
   // HandleDelete
-  const handleDelete = () => {
+  const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -37,6 +37,11 @@ const ManageMyFoodRow = ({ item }) => {
               text: "Your food item has been deleted.",
               icon: "success"
             });
+
+            // remove item from state
+            const remainingItems = food.filter((rem) => rem._id !== _id);
+            setFood(remainingItems);
+
           })
           .catch(err => {
             toast.error('Failed to delete');
@@ -65,7 +70,7 @@ const ManageMyFoodRow = ({ item }) => {
             Update
           </button>
         </Link>
-        <button onClick={handleDelete} className="bg-red-500 hover:bg-red-600 text-white px-3 font-semibold py-1 rounded text-sm">
+        <button onClick={() => handleDelete(_id)} className="bg-red-500 hover:bg-red-600 text-white px-3 font-semibold py-1 rounded text-sm">
           Delete
         </button>
       </td>

@@ -1,15 +1,17 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import ManageMyFoodRow from './ManageMyFoodRow';
 import { FaUtensils } from 'react-icons/fa';
 
 const ManageMyFoodList = ({ manageMyFoodPromise }) => {
 
-  const data = use(manageMyFoodPromise);
+  const initialData = use(manageMyFoodPromise);
+
+  const [food, setFood] = useState(initialData);
 
   return (
     <div>
       {
-        data.length === 0 ?
+        food.length === 0 ?
           <div className="flex flex-col items-center justify-center h-[50vh] text-center px-4">
             <FaUtensils className="text-6xl text-gray-400 mb-4" />
             <h2 className="text-2xl font-semibold text-gray-700 mb-2">No Food Items Found</h2>
@@ -32,7 +34,13 @@ const ManageMyFoodList = ({ manageMyFoodPromise }) => {
               </thead>
               <tbody>
                 {
-                  data.map((item) => <ManageMyFoodRow key={item._id} item={item}></ManageMyFoodRow>)
+                  food.map((item) =>
+                    <ManageMyFoodRow
+                      key={item._id}
+                      item={item}
+                      food={food}
+                      setFood={setFood}
+                    ></ManageMyFoodRow>)
                 }
               </tbody>
             </table>

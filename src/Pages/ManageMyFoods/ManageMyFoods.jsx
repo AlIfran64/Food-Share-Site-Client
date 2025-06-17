@@ -2,11 +2,13 @@ import React, { Suspense, useContext } from 'react';
 import { AuthContext } from '../../Components/Context/Authentication/AuthContext';
 import ManageMyFoodList from './ManageMyFoodList';
 import Loading from '../Loading/Loading';
-import { manageMyFoodPromise } from '../../Api/manageMyFoodApi';
+import useManageMyFood from '../../Api/useManageMyFood';
+
 
 
 const ManageMyFoods = () => {
   const { user } = useContext(AuthContext);
+  const { manageMyFoodPromise } = useManageMyFood();
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">

@@ -5,12 +5,21 @@ import { RouterProvider } from "react-router";
 import { router } from './Router/Routes.jsx';
 import { ToastContainer } from 'react-toastify';
 import AuthProvider from './Components/Context/Authentication/AuthProvider.jsx';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+// Create a client
+const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ToastContainer />
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <ToastContainer />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </StrictMode>,
 )

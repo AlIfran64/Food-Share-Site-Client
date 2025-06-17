@@ -9,7 +9,7 @@ const OurPartners = () => {
   return (
     <marquee behavior="scroll" direction="left" scrollamount="10" className="py-10">
       <div className="flex items-center justify-between gap-10">
-        {[hunger, fao, global, share, wfp].map((logo, index) => (
+        {[hunger, fao, global, share, wfp, hunger, fao, global, share, wfp].map((logo, index) => (
           <img
             key={index}
             src={logo}
