@@ -20,7 +20,8 @@ const FoodDetails = () => {
   });
 
   if (isLoading) return <Loading />;
-  if (isError) return <p className="text-red-500 text-center mt-10">Something went wrong!</p>;
+  if (isError)
+    return <p className="text-red-500 dark:text-red-400 text-center mt-10">Something went wrong!</p>;
 
   const {
     additionalNotes,
@@ -33,49 +34,94 @@ const FoodDetails = () => {
     foodDonarName,
     foodDonarEmail,
     foodDonarImage,
-    _id
+    _id,
   } = food;
 
   return (
-    <section className="py-10 lg:py-20 px-4 sm:px-8 bg-gray-50 min-h-screen font-sans relative">
-      <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+    <section className="py-10 lg:py-20 px-4 sm:px-8 bg-gray-50 dark:bg-[#1D232A] min-h-screen font-sans relative transition-colors">
+      <div className="max-w-6xl mx-auto bg-white dark:bg-[#1D232A] shadow-2xl rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+        {/* Image Section */}
         <div className="h-full w-full">
-          <img src={foodImage} alt={foodName} className="w-full h-full object-cover lg:rounded-l-3xl" />
+          <img
+            src={foodImage}
+            alt={foodName}
+            className="w-full h-full object-cover lg:rounded-l-3xl"
+          />
         </div>
 
-        <div className="p-8 flex flex-col justify-between text-black">
+        {/* Info Section */}
+        <div className="p-8 flex flex-col justify-between text-black dark:text-white">
           <div>
             <h2 className="text-4xl font-bold mb-2">{foodName}</h2>
-            <p className="text-sm text-gray-500 mb-6">A generous contribution from our community.</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+              A generous contribution from our community.
+            </p>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 text-base">
-              <p><strong>Status:</strong> <span className={`font-semibold ${foodStatus === 'available' ? 'text-green-600' : foodStatus === 'unavailable' ? 'text-red-600' : foodStatus === 'requested' ? 'text-[#FF6900]' : 'text-gray-500'}`}>{foodStatus}</span></p>
-              <p><strong>Quantity:</strong> {foodQuantity}</p>
-              <p><strong>Pickup Location:</strong> {pickupLocation}</p>
-              <p><strong>Expire Date:</strong> {expiredDate}</p>
+              <p>
+                <strong>Status:</strong>{' '}
+                <span
+                  className={`font-semibold ${foodStatus === 'available'
+                    ? 'text-green-600 dark:text-green-400'
+                    : foodStatus === 'unavailable'
+                      ? 'text-red-600 dark:text-red-400'
+                      : foodStatus === 'requested'
+                        ? 'text-orange-500'
+                        : 'text-gray-500'
+                    }`}
+                >
+                  {foodStatus}
+                </span>
+              </p>
+              <p>
+                <strong>Quantity:</strong> {foodQuantity}
+              </p>
+              <p>
+                <strong>Pickup Location:</strong> {pickupLocation}
+              </p>
+              <p>
+                <strong>Expire Date:</strong> {expiredDate}
+              </p>
             </div>
+
             {additionalNotes && (
-              <div className="bg-gray-100 p-4 rounded-xl text-gray-700 italic border-l-4 border-[#D9224E] mt-4">
+              <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-xl text-gray-700 dark:text-gray-300 italic border-l-4 border-[#D9224E] mt-4">
                 “{additionalNotes}”
               </div>
             )}
+
+            {/* Donor Info */}
             <div className="mt-10">
-              <h3 className="text-xl font-semibold text-[#344D83] mb-3">Food Donor Information</h3>
-              <div className="flex items-center gap-4 bg-[#f9fafb] border rounded-xl p-4 shadow-sm">
-                <img src={foodDonarImage} alt={foodDonarName} className="w-16 h-16 object-cover rounded-full border-2 border-[#344D83]" />
+              <h3 className="text-xl font-semibold text-[#344D83] dark:text-blue-300 mb-3">
+                Food Donor Information
+              </h3>
+              <div className="flex items-center gap-4 bg-[#f9fafb] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 shadow-sm">
+                <img
+                  src={foodDonarImage}
+                  alt={foodDonarName}
+                  className="w-16 h-16 object-cover rounded-full border-2 border-[#344D83] dark:border-blue-300"
+                />
                 <div>
                   <p className="font-bold text-lg">{foodDonarName}</p>
-                  <p className="text-sm text-gray-500">{foodDonarEmail}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{foodDonarEmail}</p>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Request Button */}
           <div className="mt-8">
-            <button onClick={() => setModal(true)} className="w-full py-3 rounded-lg bg-[#344D83] text-white font-semibold text-lg shadow-md hover:opacity-90 transition-all duration-300">
+            <button
+              onClick={() => setModal(true)}
+              className="w-full py-3 rounded-lg bg-[#344D83] hover:bg-[#2c3f6a] text-white font-semibold text-lg shadow-md transition duration-300"
+            >
               Request This Food
             </button>
           </div>
         </div>
       </div>
+
+      {/* Modal */}
       {modal && <Modal food={food} onClose={() => setModal(false)} />}
     </section>
   );

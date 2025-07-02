@@ -7,23 +7,16 @@ import Statistics from '../../Components/Statistics/Statistics';
 import FAQ from '../../Components/FAQ/FAQ';
 import OurPartners from '../../Components/OurPartners/OurPartners';
 
-
 const Home = () => {
   return (
     <div>
-      <Banner></Banner>
-
-      <OurPartners></OurPartners>
-
-      <FeaturedFoods></FeaturedFoods>
-
-      <HowItWorks></HowItWorks>
-
-      <UserTestimonial></UserTestimonial>
-
-      <Statistics></Statistics>
-
-      <FAQ></FAQ>
+      <Banner />
+      <OurPartners />
+      <FeaturedFoods />
+      <HowItWorks />
+      <UserTestimonial />
+      <Statistics />
+      <FAQ />
     </div>
   );
 };

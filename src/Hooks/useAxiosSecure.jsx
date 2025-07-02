@@ -18,7 +18,6 @@ const useAxiosSecure = () => {
     return config;
   });
 
-  // Handle unauthorized errors
   axiosSecureInstance.interceptors.response.use(
     (response) => response,
     (error) => {

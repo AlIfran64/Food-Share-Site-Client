@@ -7,18 +7,20 @@ const ErrorPage = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: animationData,
+    animationData,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
+      preserveAspectRatio: 'xMidYMid slice',
+    },
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white dark:bg-[#1D232A] px-4">
       <Lottie options={defaultOptions} height={400} width={400} />
 
       <Link to={'/'}>
-        <button className='bg-[#344D83] text-white py-3 px-6 rounded-md mt-5 font-semibold hover:bg-white hover:border-2 border-2 hover:border-[#344D83] hover:text-black cursor-pointer'>Back to home</button>
+        <button className="bg-[#344D83] text-white py-3 px-6 rounded-md mt-5 font-semibold hover:bg-white hover:border-2 border-2 hover:border-[#344D83] hover:text-black cursor-pointer transition-colors duration-300">
+          Back to home
+        </button>
       </Link>
     </div>
   );

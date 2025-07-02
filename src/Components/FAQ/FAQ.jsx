@@ -1,9 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
-
-  // To handle smooth height transition, we use refs to measure scrollHeight dynamically
   const contentRefs = useRef([]);
 
   const toggle = (index) => {
@@ -39,29 +37,32 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="w-11/12 mx-auto my-20 font-sans">
+    <section className="w-11/12 mx-auto mt-10 pb-6 font-sans bg-white dark:bg-[#1D232A] text-black dark:text-white transition-colors duration-300">
       <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div className="grid md:grid-cols-5 gap-12">
+        <div className="grid md:grid-cols-5 gap-10 md:gap-12">
+
+          {/* Left Section: Title & Description */}
           <div className="md:col-span-2">
             <div className="max-w-xs">
-              <h2 className="text-3xl font-bold md:text-4xl leading-tight">
+              <h2 className="text-3xl font-bold md:text-4xl leading-tight dark:text-white">
                 Frequently Asked Questions
               </h2>
-              <p className="mt-3 text-gray-700 text-md md:text-lg">
+              <p className="mt-3 text-gray-700 dark:text-gray-300 text-md md:text-lg">
                 Answers to common questions about Food Share.
               </p>
             </div>
           </div>
 
+          {/* Right Section: FAQ List */}
           <div className="md:col-span-3">
-            <div className="divide-y divide-gray-300">
+            <div className="divide-y divide-gray-300 dark:divide-gray-700">
               {faqs.map(({ question, answer }, index) => {
                 const isOpen = openIndex === index;
                 return (
                   <div key={index} className="py-4">
                     <button
                       onClick={() => toggle(index)}
-                      className="group flex items-center justify-between w-full text-left md:text-lg font-semibold text-gray-800 transition-colors focus:outline-none"
+                      className="group flex items-center justify-between w-full text-left md:text-lg font-semibold text-gray-800 dark:text-white focus:outline-none"
                       aria-expanded={isOpen}
                       aria-controls={`faq${index}`}
                     >
@@ -91,7 +92,7 @@ const FAQ = () => {
                         overflow: "hidden",
                         transition: "max-height 0.35s ease",
                       }}
-                      className="mt-2 text-gray-700"
+                      className="mt-2 text-gray-600 dark:text-gray-300 text-sm sm:text-base"
                     >
                       <p className="pl-1">{answer}</p>
                     </div>
@@ -102,7 +103,7 @@ const FAQ = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

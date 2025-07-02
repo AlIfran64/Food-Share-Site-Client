@@ -12,7 +12,7 @@ const Root = () => {
     <div>
       <Navbar></Navbar>
       {
-        state == "loading" ? <Loading></Loading> : <Outlet></Outlet>
+        state == "loading" ? <Loading></Loading> : <div className='min-h-screen bg-white dark:bg-[#1D232A] text-black dark:text-white transition-colors duration-300 pt-[64px] md:pt-[60px] lg:pt-[80px]'><Outlet></Outlet></div>
       }
 
       <Footer></Footer>
