@@ -103,8 +103,8 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="logo" className="w-8 h-8" />
-            <h1 className="text-xl lg:text-2xl font-semibold text-[#344D83] dark:text-white">
+            <img src={logo} alt="logo" className="w-5 h-5 md:w-8 md:h-8" />
+            <h1 className="text-base md:text-xl lg:text-2xl font-semibold text-[#344D83] dark:text-white">
               Share<span className="text-[#D9224E]">Bite</span>
             </h1>
           </Link>
@@ -127,7 +127,7 @@ const Navbar = () => {
                 <img
                   src={user.photoURL}
                   alt="User"
-                  className="w-10 h-10 lg:w-12 lg:h-12 border rounded-full"
+                  className="w-7 h-7 md:w-10 md:h-10 border rounded-full"
                   data-tooltip-id="userTooltip"
                   data-tooltip-content={user.displayName || 'No Name'}
                 />
