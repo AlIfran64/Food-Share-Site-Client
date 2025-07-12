@@ -9,13 +9,13 @@
   font-family: "Poppins", sans-serif;
 }
 
+
 html,
 body {
   background-color: white;
   color: #111827;
 }
 
-/* Dark Mode Support */
 .dark body {
   background-color: #1d232a;
   color: white;

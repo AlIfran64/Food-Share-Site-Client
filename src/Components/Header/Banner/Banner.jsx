@@ -28,25 +28,25 @@ const Banner = () => {
 
       {/* Slider-1 */}
       <SwiperSlide>
-        <div className="relative w-full">
+        <div className="relative w-full h-full">
           <img
             src={slider1}
             alt="slider-1 image"
-            className="w-full h-full lg:h-[600px] object-cover"
+            className="w-full h-full object-cover"
           />
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-4 sm:px-8 md:px-12 lg:px-20">
-            <h2 className="text-base sm:text-xl md:text-3xl lg:text-5xl font-bold mb-4 text-start">
+            <h2 className="text-base sm:text-xl md:text-3xl lg:text-5xl font-bold mb-2 md:mb-4 text-start">
               Connect Excess Food to <br /> Empty Plates
             </h2>
-            <p className="mb-5 text-xs sm:text-sm lg:text-xl text-start">
+            <p className="mb-2 md:mb-5 text-xs sm:text-sm lg:text-xl text-start">
               Join a platform where individuals and organizations turn surplus food into <br /> meaningful support. Simple to donate, easy to manage, and impactful.
             </p>
             <p className="mb-1 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
               | Trusted by 5,000+ users
             </p>
-            <p className="mb-8 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
+            <p className="mb-4 md:mb-8 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
               | Over 20,000 meals shared
             </p>
             <Link to={'/availableFoods'}>
@@ -60,25 +60,25 @@ const Banner = () => {
 
       {/* Slider-2 */}
       <SwiperSlide>
-        <div className="relative w-full">
+        <div className="relative w-full h-full">
           <img
             src={slider2}
             alt="slider-2 image"
-            className="w-full h-full lg:h-[600px] object-cover"
+            className="w-full h-full object-cover"
           />
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-4 sm:px-8 md:px-12 lg:px-20">
-            <h2 className="text-base sm:text-xl md:text-3xl lg:text-5xl font-bold mb-4 text-start">
+            <h2 className="text-base sm:text-xl md:text-3xl lg:text-5xl font-bold mb-2 md:mb-4 text-start">
               Build a Hunger-Free Community
             </h2>
-            <p className="mb-5 text-xs sm:text-sm lg:text-xl text-start">
+            <p className="mb-2 md:mb-5 text-xs sm:text-sm lg:text-xl text-start">
               Your extra food can make someone’s day. Share locally, track requests, and <br /> be part of a movement that feeds hope.
             </p>
             <p className="mb-1 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
               | Serving 30+ local areas
             </p>
-            <p className="mb-8 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
+            <p className="mb-4 md:mb-8 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
               | Backed by 100+ verified partners
             </p>
             <Link to={'/addFood'}>
@@ -92,25 +92,25 @@ const Banner = () => {
 
       {/* Slider-3 */}
       <SwiperSlide>
-        <div className="relative w-full">
+        <div className="relative w-full h-full">
           <img
             src={slider3}
             alt="slider-3 image"
-            className="w-full h-full lg:h-[600px] object-cover"
+            className="w-full h-full object-cover"
           />
 
           {/* Left-to-right black gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent flex flex-col justify-center items-start text-white px-4 sm:px-8 md:px-12 lg:px-20">
-            <h2 className="text-base sm:text-xl md:text-3xl lg:text-5xl font-bold mb-4 text-start">
+            <h2 className="text-base sm:text-xl md:text-3xl lg:text-5xl font-bold mb-2 md:mb-4 text-start">
               Got Extra Food? Someone <br /> Needs It.
             </h2>
-            <p className="mb-5 text-xs sm:text-sm lg:text-xl text-start">
+            <p className="mb-2 md:mb-5 text-xs sm:text-sm lg:text-xl text-start">
               Reduce waste, respond to real needs, and make a difference — one <br /> click is all it takes.
             </p>
             <p className="mb-1 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
               | 98% user satisfaction
             </p>
-            <p className="mb-8 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
+            <p className="mb-4 md:mb-8 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide opacity-80">
               | Live request tracking available
             </p>
             <Link to={'/myFoodRequest'}>
