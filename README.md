@@ -1,4 +1,4 @@
-# ShareBite - A Food Sharing Website
+# ShareBite - A Food Sharing Websit
 
 **ShareBite** is a community-driven food sharing platform that enables individuals and organizations to share excess food with those in need. The goal is to reduce food waste, promote sustainability, and build a bridge between donors and receivers through a user-friendly web interface.
 
