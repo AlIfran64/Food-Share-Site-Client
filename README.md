@@ -7,12 +7,6 @@
 
 ---
 
-## Server Repository
-
-- [Food Share Site - Server](https://github.com/AlIfran64/Food-Share-Site-Server)
-
----
-
 ## Key Features
 
 - Firebase Authentication
